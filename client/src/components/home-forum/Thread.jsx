@@ -8,7 +8,6 @@ class Thread extends React.Component{
   render(){
     return(
     <div>
-      {console.log(this.props)}
       <div>
         <div>{`${this.props.thread.title}`}</div><br />
           <div>{`${this.props.thread.body}`}</div><br />

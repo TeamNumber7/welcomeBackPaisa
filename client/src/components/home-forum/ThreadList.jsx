@@ -4,7 +4,6 @@ import Thread from './Thread.jsx';
 
 const ThreadList = (props) => (
   <div>
-    {console.log(props)}
     {props.threads.map(thread => <Thread thread={thread} key={thread.id} /> )}
   </div>
 );
