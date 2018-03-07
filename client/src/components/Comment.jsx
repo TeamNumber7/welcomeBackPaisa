@@ -42,7 +42,7 @@ class Comment extends React.Component{
     return(
       <div>
         <AddReplyThread />
-        <ReplyList replyThread={this.state.replyThread}  />
+        <ReplyList replies={this.state.replyThread}  />
       </div>
     )
   }
