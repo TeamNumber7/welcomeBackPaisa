@@ -9,13 +9,13 @@ body {
   background-position: center top;
 }
 h1{
-  position: absolute;
-  left:150px;
+  position: relative;
+  position: 550px;
   top: -70px;
 }
 h2{
   position: relative;
-  left: 185px;
+  left: 0px;
   top: 300px;
   color: white;
 }

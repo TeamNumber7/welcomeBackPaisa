@@ -1,6 +1,8 @@
 import React from 'react';
-import AddReplyThread from './AddReplyThread.jsx'
-import ReplyList from './ReplyList.jsx'
+import AddReplyThread from './AddReplyThread.jsx';
+import ReplyList from './ReplyList.jsx';
+
+
 class Comment extends React.Component{
   constructor(props){
     super(props);

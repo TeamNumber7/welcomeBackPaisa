@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import AddThread from './components/AddThread.jsx';
 import ThreadList from './components/ThreadList.jsx';
-import Comment from './components/Comment.jsx'
+import Comment from './components/Comment.jsx';
 import AddReplyThread from './components/AddReplyThread.jsx';
-import BrowserRouter from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom';
+import {MuiThemeProvider} from 'material-ui/styles';
+
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -14,10 +17,10 @@ class App extends React.Component{
     currentThread:null
   }
 
-
+  this.thread = this.thread.bind(this);
   this.addThread = this.addThread.bind(this);
   this.getThread = this.getThread.bind(this);
-  this.handleThread=this.handleThread.bind(this)
+  this.handleThread=this.handleThread.bind(this);
 
 }
 
@@ -63,18 +66,18 @@ class App extends React.Component{
 
 
   }
-
  render() {
     return (
       <div>
-
+        <BrowserRouter>
+        <MuiThemeProvider>
       <AddThread addThread={this.addThread} />
-      <ThreadList  thread={this.state.thread}    currentThread={this.state.currentThread}  handleThread={this.handleThread}   />
-
-
-
+      <ThreadList  thread={this.state.thread} currentThread={this.state.currentThread}  handleThread={this.handleThread}   />
+      </MuiThemeProvider>
+    </BrowserRouter>
   </div>
-    );
-  }
-}
-ReactDOM.render(<App />, document.getElementById('app'))
+    )
+  };
+
+};
+ReactDOM.render(<App />, document.getElementById('app'));

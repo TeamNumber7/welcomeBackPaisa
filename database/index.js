@@ -1,13 +1,6 @@
-var express = ('express');
-var mysql = require('mysql');
+var express = require('express');
+var mysql = require('./config.js');
 
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: 'Holacode',
-  database: "paisa"
-});
 
 
 con.connect(function(err) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReplyThread from './ReplyThread.jsx'
+import ReplyThread from './ReplyThread.jsx';
 
 const ReplyList = (props)=>
 (

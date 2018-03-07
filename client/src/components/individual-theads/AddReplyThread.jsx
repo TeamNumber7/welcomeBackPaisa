@@ -43,3 +43,5 @@ class AddReplyThread extends React.Component{
   }
 
   }
+
+  export default AddReplyThread;
