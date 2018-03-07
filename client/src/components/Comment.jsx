@@ -1,13 +1,15 @@
 import React from 'react';
 import AddReplyThread from './AddReplyThread.jsx'
 import ReplyList from './ReplyList.jsx'
+
 class Comment extends React.Component{
   constructor(props){
     super(props);
   this.state={
     replyThread:[]
+    }
   }
-  }
+
   getReply(){
     $.ajax({
       url:'/reply',
@@ -22,9 +24,9 @@ class Comment extends React.Component{
       }
     })
   }
+
   addReply(reply){
     $.ajax({
-
       method:'POST',
       url:'/reply',
       contentType: 'application/json',
@@ -35,20 +37,15 @@ class Comment extends React.Component{
       this.getReply()
     })
   }
+
   render(){
-return(
- <div>
-
-
-
-<AddReplyThread />
-<ReplyList replyThread={this.state.replyThread}  />
-
-
-
-
-</div>
-)}
+    return(
+      <div>
+        <AddReplyThread />
+        <ReplyList replies={this.state.replyThread}  />
+      </div>
+    )
+  }
 }
 
 export default Comment;

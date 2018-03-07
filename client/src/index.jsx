@@ -1,30 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import BrowserRouter from 'react-router-dom'
+
 import AddThread from './components/AddThread.jsx';
 import ThreadList from './components/ThreadList.jsx';
 import Comment from './components/Comment.jsx'
 import AddReplyThread from './components/AddReplyThread.jsx';
-import BrowserRouter from 'react-router-dom'
-class App extends React.Component{
+
+class App extends React.Component {
   constructor(props){
     super(props);
-    this.state={
+    this.state = {
       thread: [],
-    currentThread:null
+      currentThread: null
   }
-
-
   this.addThread = this.addThread.bind(this);
   this.getThread = this.getThread.bind(this);
-  this.handleThread=this.handleThread.bind(this)
-
+  this.handleThread = this.handleThread.bind(this)
 }
-
 
   addThread(comment){
     $.ajax({
-
       method:'POST',
       url:'/paisa',
       contentType: 'application/json',
@@ -35,6 +32,7 @@ class App extends React.Component{
       this.getThread()
     })
   }
+
   getThread(){
     $.ajax({
       url:'/paisa',
@@ -42,39 +40,29 @@ class App extends React.Component{
       success: (results) =>{
         this.setState({thread:results})
       },
-      error:(xhr,err) => {
+      error: (xhr,err) => {
         console.log("err", err);
       }
-
     })
   }
 
-
-
-
   handleThread(results){
-
-{console.log(thread)}
-  this.setState({currentThread:results})
-
+    {console.log(thread)}
+    this.setState({currentThread:results})
   }
- componentDidMount(){
+
+  componentDidMount(){
     this.getThread();
-
-
   }
 
- render() {
+  render() {
     return (
       <div>
-
-      <AddThread addThread={this.addThread} />
-      <ThreadList  thread={this.state.thread}    currentThread={this.state.currentThread}  handleThread={this.handleThread}   />
-
-
-
-  </div>
+        <AddThread addThread={this.addThread} />
+        <ThreadList thread={this.state.thread} currentThread={this.state.currentThread} handleThread={this.handleThread}   />
+      </div>
     );
   }
 }
+
 ReactDOM.render(<App />, document.getElementById('app'))
