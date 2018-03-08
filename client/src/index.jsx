@@ -35,23 +35,26 @@ class App extends React.Component{
       url:'/paisa',
       contentType: 'application/json',
       data:JSON.stringify({
-        comment: comment
+      comment: comment
       })
     }).done(()=>{
       this.getThread()
     });
   }
+
   getThread() {
     $.ajax({
+      type: "GET",
       url: '/paisa',
-      method: "GET",
-      success: (results) =>{
-        this.setState({thread: results});
-      },
-      error:(xhr, err) => {
-        console.log("err", err);
-      }
-    })
+      success: function(results) {
+        this.setState({
+          thread: results
+        })
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.log("err", err)
+      }.bind(this)
+    });
   }
 
   handleThread(results){
