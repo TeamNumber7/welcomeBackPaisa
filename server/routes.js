@@ -1,64 +1,41 @@
+const db = require('../database/index.js');
+const url = require('url');
 
-app.get('/reply', function(req,res){
-  data.getReply((err,results)=>{
-    if(err){
-      console.log('error');
-      res.sendStatus(500);
-    }else{
-      res.status(200).json(results)
-    }
-  })
-})
-app.post('/reply'),function(req,res){
-  let reply=req.body.reply
-  if(!reply){
-    res.sendStatus(400);
-  }else{
-    data.postReply(reply,(error,results)=>{
-      if(err){
-        res.sendStatus(500);
-
-      }else{
-        res.status(200).json(results)
-      }
+//Query db for threads (topic_subject)
+exports.getThread = (req, res) => {
+  db.getTopic()
+    .then(data => {
+      res.status(200).send(data)
     })
-  }
-
+    .catch(err => { console.log(err) })
 }
-app.get('/paisa', function(req,res){
-  data.getComment((err,results)=>{
-if(err){
-  console.log('error')
-  res.sendStatus(500);
-}else{
-  res.status(200).json(results)
-}
-})
-} )
 
-app.get('/comment', function(req,res){
-  data.getComment((err,results)=>{
-    if(err){
-      console.log('error')
-     res.sendStatus(500)
-   }else{
-     res.status(200).json(results)
-   }
+
+//Query db for replies on already existing threads
+exports.getResponse = (req, res) => {
+  db.getReply()
+  .then(data => {
+    res.status(200).send(data)
   })
-})
-app.post('/paisa', function(req,res){
-  let comment =req.body.comment
-  if(!comment){
-    res.sendStatus(400);
+  .catch(err => { console.log(err) })
+}
 
-  }else{
-    data.postComment(comment,(err,results)=>{
-      if(err){
-        res.sendStatus(500);
 
-      }else{
-        res.status(200).json(results);
-      }
-    })
-  }
-})
+
+//Query for posting new threads
+exports.postText = (req, res) => {
+  db.postTopic()
+  .then(data => {
+    res.status(200).send(data)
+  })
+  .catch(err => { console.log(err) })
+}
+
+//Query for posting new replies
+exports.postResponse = (req, res) => {
+  db.postReply()
+  .then(data => {
+    res.status(200).send(data)
+  })
+  .catch(err => { console.log(err) })
+}

@@ -1,16 +1,10 @@
-var express = require('express');
-var mysql = require('./config.js');
+const mysql = require('mysql');
+const mysqlConfig = require('./config.js');
 
-
-
-con.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
-})
-
+const connection = mysql.createConnection(mysqlConfig);
 
   //user
-  var newUserName = function(cb){
+  /*var newUserName = function(cb){
   con.query('INSERT INTO user(userName) VALUES(?)',[userName],(err,results,field) =>{
     if(err) {
        cb(err, null);
@@ -19,57 +13,59 @@ con.connect(function(err) {
        cb(null, results);
      }
   })
-}
+}*/
 
 
-//comments
-  var postComment = function(comment, cb){
-  con.query('INSERT INTO comments(comment) VALUES(?)',[comment],(err,results,fields) =>{
+//post new topic(trhead)
+  const postTopic = function() {
+    return new Promise((resolve, reject) = {
+  connection.query('INSERT INTO topics(topic_subject) VALUES(?)',[topic_subject], (err, data) => {
     if(err){
-      console.log('here');
-       cb(err, null);
-     } else {
-       console.log(results);
-       cb(null, results);
+       return reject(err);
      }
+     return resolve(data);
+   })
+  })
+};
+
+//gets topic already created
+  const getTopic = function() {
+    return new Promise((resolve, reject) => {
+    connection.query('SELECT topic_subject FROM topics', (err, data) => {
+      if(err){
+        return reject(err);
+       }
+       return resolve(data);
+    })
+  })
+};
+//post reply to threads in home page
+  const postReply = function() {
+    return new Promise((resolve, reject) => {
+  connection.query('INSERT INTO reply(reply_text) VALUES(?)',[reply_text], (err, data) => {
+    if(err){
+      return reject(err);
+     }
+     return resolve(data);
+   })
+ })
+};
+
+//gets replies from client to be viewed by client
+  const getReply = function() {
+    return new Promise((resolve, reject) => {
+    connection.query('SELECT reply_text FROM reply', (err, data) => {
+      if(err){
+         return reject(err);
+       }
+       return resolve(data):
+    })
   })
 }
 
-  var getComment = function(cb){
-    con.query('SELECT comment FROM comments',(err,results,field) =>{
-      if(err){
-        console.log('no, here');
-         cb(err, null);
-       } else {
-         console.log(results);
-         cb(null, results);
-       }
-    })
-  }
-//reply
-  var postReply = function(cb){
-  con.query('INSERT INTO reply(reply) VALUES(?)',[reply],(err,results,fields) =>{
-    if(err){
-       cb(err, null);
-     } else {
-       console.log(results);
-       cb(null, results);
-     }
-})
+module.exports = {
+  postTopic,
+  getTopic;
+  postReply;
+  getReply;
 }
-
-  var getReply = function(cb){
-    con.query('SELECT reply FROM reply',(err,results,fields) =>{
-      if(err){
-         cb(err, null);
-       } else {
-         console.log(results);
-         cb(null, results);
-       }
-    })
-  }
-  module.exports.newUserName = newUserName;
-  module.exports.postComment = postComment;
-  module.exports.getComment = getComment;
-  module.exports.postReply = postReply;
-  module.exports.getReply = getReply;
