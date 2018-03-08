@@ -17,12 +17,16 @@ class App extends React.Component{
     currentThread:null
   }
 
-  this.thread = this.thread.bind(this);
+
   this.addThread = this.addThread.bind(this);
   this.getThread = this.getThread.bind(this);
-  this.handleThread=this.handleThread.bind(this);
+  this.handleThread = this.handleThread.bind(this);
 
 }
+
+  componentWillMount(){
+    console.log('Testing ComponentWillMount');
+  }
 
 
   addThread(comment){
@@ -39,8 +43,8 @@ class App extends React.Component{
   }
   getThread() {
     $.ajax({
-      url:'/paisa',
-      method:"GET",
+      url: '/paisa',
+      method: "GET",
       success: (results) =>{
         this.setState({thread: results});
       },
@@ -63,14 +67,12 @@ class App extends React.Component{
   }
  render() {
     return (
-      <div>
-        <BrowserRouter>
-        <MuiThemeProvider>
-      <AddThread addThread={this.addThread} />
-      <ThreadList  thread={this.state.thread} currentThread={this.state.currentThread}  handleThread={this.handleThread}/>
-      </MuiThemeProvider>
-    </BrowserRouter>
-  </div>
+      <BrowserRouter>
+        <div>
+          <AddThread addThread={this.addThread} />
+          <ThreadList  thread={this.state.thread} currentThread={this.state.currentThread}  handleThread={this.handleThread}/>
+        </div>
+      </BrowserRouter>
     )
   };
 
