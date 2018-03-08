@@ -39,8 +39,8 @@ class App extends React.Component{
   this.handlePost=this.handlePost.bind(this);
 }
 
-  componentDidMount(){
-    this.getPost();
+  componentWillMount(){
+    this.addPost();
   }
 
   addPost(comment){
@@ -74,6 +74,11 @@ class App extends React.Component{
     currentPost:results
     })
   }
+
+
+    componentDidMount(){
+      this.getPost();
+    }
 
  render() {
     return (
