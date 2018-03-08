@@ -55,7 +55,7 @@ class App extends React.Component{
         console.log("err", err)
       }.bind(this)
     });
-  }
+  } 
 
   handleThread(results){
 
