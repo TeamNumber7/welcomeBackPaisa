@@ -8,9 +8,16 @@ import $ from "jquery";
 import React from "react";
 import {Link} from "react-router-dom";
 
+<<<<<<< d7c8ca3e916821047b89299674a47f0d1d3f45e5
 import Posts from "../components/forum/Posts.jsx";
 import AddPost from "../components/forum/AddPost.jsx";
 //import TextBoxForum from '../components/forum/TextBox.jsx';
+=======
+import DrawerUndockedExample from "../components/app/Menu.jsx";
+import HeaderBar from "../components/app/HeaderBar.jsx";
+import Posts from "../components/forum/Posts.jsx"
+import AddPost from "../components/forum/AddPost.jsx"
+>>>>>>> rebase
 
 export default class Forum extends React.Component {
   constructor(props){
@@ -26,13 +33,17 @@ export default class Forum extends React.Component {
     this.getPost();
   }
 
+  componentDidMount(){
+    this.addPost();
+  }
+
   getPost(){
     $.ajax({
       url:'/forum',
       method:"GET",
-      success: (data) => {
+      success: (results) => {
         this.setState({
-          posts: data
+          posts: results
         })
       },
       error:(xhr,err) => {
@@ -57,12 +68,19 @@ export default class Forum extends React.Component {
   render() {
     return (
       <div>
+<<<<<<< d7c8ca3e916821047b89299674a47f0d1d3f45e5
         <div>
           <Posts posts={this.state.posts} />
         </div>
           <center>
             <AddPost />
           </center>
+=======
+        <HeaderBar/>
+        <DrawerUndockedExample />
+        <AddPost />
+        <Posts posts={this.state.posts} />
+>>>>>>> rebase
       </div>
     );
   }

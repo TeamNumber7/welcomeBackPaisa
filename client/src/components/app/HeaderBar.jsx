@@ -1,22 +1,20 @@
-/*HeaderBar will only contain banner image
-  it is a stateless presentational component
-*/
-
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+const HeaderBar = () => (
+  <Card>
+    <CardHeader
 
-//Re-write HeaderBar, it will no longer contain navigation elements
-//Temporary header, for dev purposes
-  const HeaderBar = (props) => (
-    <div className="wrapper full-height">
-      <header className="header cf">
-        <div className="float-left">
-          <Link to="/" className="menu-title">
-            <span>Forum</span>
-          </Link>
-        </div>
-      </header>
-    </div>
-  );
-
-  export default HeaderBar;
+    />
+    <CardMedia
+      overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+    >
+      <img src="images/nature-600-337.jpg" alt="" />
+    </CardMedia>
+    <CardTitle title="Card title" subtitle="Card subtitle" />
+    <CardText>
+      Was good fool!
+    </CardText>
+  </Card>
+);
+export default HeaderBar;

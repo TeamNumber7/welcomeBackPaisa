@@ -16,7 +16,11 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
+<<<<<<< d7c8ca3e916821047b89299674a47f0d1d3f45e5
 import DrawerUndockedExample from "./components/app/Menu.jsx";
+=======
+
+>>>>>>> rebase
 import Forum from './pages/Forum.jsx';
 import Post from './pages/Post.jsx';
 import AboutMe from './pages/AboutMe.jsx';
