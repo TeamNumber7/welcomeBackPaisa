@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 
 import Posts from "../components/forum/Posts.jsx";
 import AddPost from "../components/forum/AddPost.jsx";
-import TextBoxForum from '../components/forum/TextBox.jsx';
+//import TextBoxForum from '../components/forum/TextBox.jsx';
 
 export default class Forum extends React.Component {
   constructor(props){
@@ -60,10 +60,9 @@ export default class Forum extends React.Component {
         <div>
           <Posts posts={this.state.posts} />
         </div>
-          <center><AddPost /></center>
-          <div>
-            <TextBoxForum />
-          </div>
+          <center>
+            <AddPost />
+          </center>
       </div>
     );
   }
