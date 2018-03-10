@@ -4,6 +4,7 @@
 */
 
 import React from 'react';
+import TextField from 'material-ui/TextField';
 
 class AddPost extends React.Component{
  constructor(props){
@@ -31,7 +32,10 @@ class AddPost extends React.Component{
     return (
       <div>
         <div className="startT">
-        <h2>START A THREAD</h2>
+        <h2>ADD NEW POST</h2>
+          <section className="forumTextBox-section">
+              <TextField floatingLabelText="New Post" multiLine={true} />
+          </section>
         </div>
       </div>
     );
