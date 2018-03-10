@@ -16,7 +16,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
-import HeaderBar from "./components/app/HeaderBar.jsx";
+import DrawerUndockedExample from "./components/app/Menu.jsx";
 import Forum from './pages/Forum.jsx';
 import Post from './pages/Post.jsx';
 import AboutMe from './pages/AboutMe.jsx';
@@ -25,17 +25,20 @@ import AboutMe from './pages/AboutMe.jsx';
 //TODO Add Router Route
 
 const App = () => (
-       <BrowserRouter>
-        <MuiThemeProvider>
-          <main>
-            <Switch>
-              <Route exact path="/" component={Forum} />
-                <Route path="/post/:id" component={Post} />
-                  <Route path="/about" component={AboutMe} />
-            </Switch>
-          </main>
-        </MuiThemeProvider>
-      </BrowserRouter>
+  <div>
+    <DrawerUndockedExample />
+    <BrowserRouter>
+      <MuiThemeProvider>
+        <main id="content" className="full-height inner">
+          <Switch>
+            <Route exact path="/" component={Forum} />
+              <Route path="/post/:id" component={Post} />
+                <Route path="/about" component={AboutMe} />
+          </Switch>
+        </main>
+      </MuiThemeProvider>
+    </BrowserRouter>
+  </div>
     )
 
 ReactDOM.render(<App />, document.getElementById('app'));
