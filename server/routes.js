@@ -1,5 +1,6 @@
 const db = require('../database/index.js');
 const url = require('url');
+const path = require('path');
 
 //Query db for threads (topic_subject)
 exports.getThread = (req, res) => {
@@ -12,7 +13,11 @@ exports.getThread = (req, res) => {
 
 //Query db for replies on already existing threads
 exports.getResponse = (req, res) => {
-  db.getReply()
+  let postId = parseInt(req.url.split('/')[2])
+  Promise.all([
+    db.getSingleTopic(postId),
+    db.getReply(postId)
+  ])
   .then(data => {
     res.status(200).send(data)
   })

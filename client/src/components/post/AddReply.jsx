@@ -1,10 +1,9 @@
 /*AddReplay will be stateful component where new replies are written
 */
-
 import React from 'react';
 
 class AddReply extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
      reply: ''
@@ -31,7 +30,7 @@ class AddReply extends React.Component{
       <div>
         <textarea onChange={this.updateReply} value={this.state.reply}></textarea>
         <div>
-          <button onClick={this.insertReply}>Add reply</button>
+          <button onClick={this.postReply}>Add reply</button>
         </div>
       </div>
     )
