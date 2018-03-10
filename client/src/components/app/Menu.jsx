@@ -45,7 +45,7 @@ export default class DrawerUndockedExample extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-        <Link to="/forum"><MenuItem onClick={this.handleClose}>Forum</MenuItem></Link>
+        <Link to="/"><MenuItem onClick={this.handleClose}>Forum</MenuItem></Link>
         <Link to="/about"><MenuItem onClick={this.handleClose}>About Us</MenuItem></Link>
         </Drawer>
       </div>

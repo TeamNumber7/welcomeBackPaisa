@@ -27,7 +27,7 @@ CREATE TABLE posts (
 );
 
 
-INSERT INTO posts(post_id, post_subject) VALUES(1, 'hello darkness my old friend');
+INSERT INTO posts(post_id, post_subject) VALUES(1, 'Hello darkness my old friend');
 INSERT INTO posts(post_id, post_subject) VALUES(2, 'Ive come to talk with you again');
 INSERT INTO posts(post_id, post_subject) VALUES(3, 'because a vision softly creeping');
 INSERT INTO posts(post_id, post_subject) VALUES(4, 'left its seeds while I was sleeping');
