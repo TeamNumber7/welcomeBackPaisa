@@ -16,7 +16,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
-
+import HeaderBar from "./components/app/HeaderBar.jsx";
 import Forum from './pages/Forum.jsx';
 import Post from './pages/Post.jsx';
 import AboutMe from './pages/AboutMe.jsx';

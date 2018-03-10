@@ -9,7 +9,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import DrawerUndockedExample from "../components/app/Menu.jsx";
-import HeaderBar from "../components/app/HeaderBar.jsx";
+
 import Posts from "../components/forum/Posts.jsx"
 import AddPost from "../components/forum/AddPost.jsx"
 
@@ -25,10 +25,6 @@ export default class Forum extends React.Component {
 
   componentDidMount(){
     this.getPost();
-  }
-
-  componentDidMount(){
-    this.addPost();
   }
 
   getPost(){

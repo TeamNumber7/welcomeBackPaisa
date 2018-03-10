@@ -9,7 +9,7 @@ const HeaderBar = () => (
     <CardMedia
       overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
     >
-      <img src="images/nature-600-337.jpg" alt="" />
+      <img src={"Angel_de_la_Independencia.jpg"} style={{width: 50, height: 400}} alt="" />
     </CardMedia>
     <CardTitle title="Card title" subtitle="Card subtitle" />
     <CardText>
