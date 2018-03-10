@@ -32,7 +32,7 @@ const App = () => (
         <main id="content" className="full-height inner">
           <Switch>
             <Route exact path="/" component={Forum} />
-              <Route path="/post/:id" component={Post} />
+              <Route path="/post/:id" render={(props) => <Post {...props}/> } />
                 <Route path="/about" component={AboutMe} />
           </Switch>
         </main>

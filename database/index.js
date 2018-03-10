@@ -40,6 +40,18 @@ const connection = mysql.createConnection(mysqlConfig);
     })
   })
 };
+//GET single Topic
+const getSingleTopic = function(postId) {
+  return new Promise((resolve, reject) => {
+  connection.query('SELECT * FROM posts WHERE post_id = ?', [postId], (err, data) => {
+    if(err){
+      return reject(err);
+     }
+     return resolve(data);
+  })
+})
+};
+
 //post reply to threads in home page
   const postReply = function() {
     return new Promise((resolve, reject) => {
@@ -54,9 +66,9 @@ const connection = mysql.createConnection(mysqlConfig);
 };
 
 //gets replies from client to be viewed by client
-  const getReply = function() {
+  const getReply = function(postId) {
     return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM reply', (err, data) => {
+    connection.query('SELECT * FROM reply WHERE reply_id = ?', [postId], (err, data) => {
       if(err){
          return reject(err);
        }
@@ -68,6 +80,7 @@ const connection = mysql.createConnection(mysqlConfig);
 module.exports = {
   postTopic,
   getTopic,
+  getSingleTopic,
   postReply,
   getReply
 }

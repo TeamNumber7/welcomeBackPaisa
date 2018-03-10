@@ -6,20 +6,63 @@
   Post will contain handleSubmit logic for AddReply
   Post will save GET data in state and pass down post and replies down as props
 */
-
 import React from 'react';
+
+import Comment from '../components/post/Comment.jsx';
+import ReplyThread from '../components/post/ReplyThread.jsx';
 
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      comment: [],
+      replies: []
     }
-}
+    this.getReply = this.getReply.bind(this)
+    this.addReply = this.addReply.bind(this)
+  }
+
+  componentDidMount() {
+    this.getReply(this.props.match.params.id);
+  }
+
+  getReply(postId) {
+    $.ajax({
+      url: `/post/${postId}`,
+      method:'GET',
+      success: (data) => {
+        this.setState({
+          comment: data[0],
+          replies: data[1]
+        })
+      },
+      error:(xhr,err) => {
+        console.log('err',err)
+      }
+    })
+  }
+
+  addReply(reply){
+    $.ajax({
+      method:'POST',
+      url:'/reply',
+      contentType: 'application/json',
+      data:JSON.stringify({
+        reply:reply
+      })
+    }).done(() => {
+      this.getReply()
+    })
+  }
 
   render() {
+    let currentComment = this.state.comment.map(post => <Comment
+      post={post} key={post.post_id} /> )
+      
     return (
       <div>
-
+        { currentComment }
+        <ReplyThread replies={this.state.replies} />
       </div>
       )
     }

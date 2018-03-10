@@ -4,16 +4,23 @@
 */
 
 import React from 'react';
+import Reply from './Reply.jsx';
 
 class ReplyThread extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+
+    }
   }
 
-  render(){
+  render() {
+    let allReplies = this.props.replies.map(reply =>
+        <Reply reply={reply} key={reply.id} /> )
+
     return (
       <div>
-       {this.props.Replythread.reply}
+       { allReplies }
       </div>
     )
   }
