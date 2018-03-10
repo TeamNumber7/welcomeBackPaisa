@@ -26,9 +26,9 @@ import AboutMe from './pages/AboutMe.jsx';
 
 const App = () => (
   <div>
-    <DrawerUndockedExample />
     <BrowserRouter>
       <MuiThemeProvider>
+      <DrawerUndockedExample />
         <main id="content" className="full-height inner">
           <Switch>
             <Route exact path="/" component={Forum} />
