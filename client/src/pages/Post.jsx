@@ -56,9 +56,12 @@ export default class Post extends React.Component {
   }
 
   render() {
+    let currentComment = this.state.comment.map(post => <Comment
+      post={post} key={post.post_id} /> )
+      
     return (
       <div>
-        <Comment comment={this.state.comment} />
+        { currentComment }
         <ReplyThread replies={this.state.replies} />
       </div>
       )

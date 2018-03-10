@@ -15,7 +15,6 @@ class ReplyThread extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     let allReplies = this.props.replies.map(reply =>
         <Reply reply={reply} key={reply.id} /> )
 

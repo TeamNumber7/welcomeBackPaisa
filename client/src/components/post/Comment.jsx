@@ -7,12 +7,11 @@ import React from 'react';
 const Comment = (props) => (
   <div>
     <center>
-      {console.log(props.comment.id)}
       <div>
-        {props.comment.post_subject}
+        {props.post.post_subject}
       </div>
       <div>
-        {props.comment.post_text}
+        {props.post.post_text}
       </div>
     </center>
   </div>
