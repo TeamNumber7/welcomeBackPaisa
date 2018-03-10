@@ -9,10 +9,15 @@ import Reply from './Reply.jsx';
 class ReplyThread extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+
+    }
   }
 
   render() {
-    let allReplies = this.props.replies.map(reply => <Reply reply={reply} key={reply.id} />)
+    console.log(this.props)
+    let allReplies = this.props.replies.map(reply =>
+        <Reply reply={reply} key={reply.id} /> )
 
     return (
       <div>

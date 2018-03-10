@@ -30,13 +30,13 @@ export default class Post extends React.Component {
     $.ajax({
       url: `/post/${postId}`,
       method:'GET',
-      success:(data) => {
+      success: (data) => {
         this.setState({
           comment: data[0],
           replies: data[1]
         })
       },
-      error:(xhr,err)=>{
+      error:(xhr,err) => {
         console.log('err',err)
       }
     })
@@ -50,7 +50,7 @@ export default class Post extends React.Component {
       data:JSON.stringify({
         reply:reply
       })
-    }).done(()=>{
+    }).done(() => {
       this.getReply()
     })
   }

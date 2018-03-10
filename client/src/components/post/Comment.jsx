@@ -5,14 +5,17 @@ import React from 'react';
 
 //Logic for GET/POST will be moved up to Post.jsx
 const Comment = (props) => (
-  <center>
-    <h3>
-      {this.props.comment.post_subject}
-    </h3>
-    <h4>
-      {this.props.comment.post_text}
-    </h4>
-  </center>
+  <div>
+    <center>
+      {console.log(props.comment.id)}
+      <div>
+        {props.comment.post_subject}
+      </div>
+      <div>
+        {props.comment.post_text}
+      </div>
+    </center>
+  </div>
 )
 
 export default Comment;
