@@ -9,7 +9,6 @@ CREATE TABLE user (
   userName varchar(55)
 );
 
-
 INSERT INTO user(userName) VALUES('rainbowBrony');
 INSERT INTO user(userName) VALUES('theBlackLobo');
 INSERT INTO user(userName) VALUES('emperorCamilo');
@@ -17,32 +16,29 @@ INSERT INTO user(userName) VALUES('codingNerd45');
 INSERT INTO user(userName) VALUES('vatoLoco1');
 INSERT INTO user(userName) VALUES('cleverUser2');
 
-
 CREATE TABLE posts (
   id INT NOT NULL AUTO_INCREMENT,
   post_id INT NOT NULL,
   post_subject text,
+  post_text text,
   PRIMARY KEY(id),
   FOREIGN KEY(post_id) REFERENCES user(id)
 );
 
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(1, 'Hello darkness my old friend', 'Steve wants reflections, so let\'s give him reflections. Even the worst thing we can do here is good. We have a fantastic little sky!');
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(2, 'Ive come to talk with you again', 'Sometimes you learn more from your mistakes than you do from your masterpieces. The only prerequisite is that it makes you happy. If it makes you happy then it\'s good.');
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(3, 'because a vision softly creeping', 'Fluff it up a little and hypnotize it. This is a happy place, little squirrels live here and play. Let your heart take you to wherever you want to be.');
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(4, 'left its seeds while I was sleeping', 'Let your imagination be your guide. You can do anything here. So don\'t worry about it.');
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(5, 'and the vision that was planted in my brain', 'We need dark in order to show light. Working it up and down, back and forth. The only thing worse than yellow snow is green snow.');
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(6, 'still remains... within the sound of silence', 'Let that brush dance around there and play. Remember how free clouds are. They just lay around in the sky all day long. Isn\'t it great to do something you can\'t fail at?');
 
-INSERT INTO posts(post_id, post_subject) VALUES(1, 'Hello darkness my old friend');
-INSERT INTO posts(post_id, post_subject) VALUES(2, 'Ive come to talk with you again');
-INSERT INTO posts(post_id, post_subject) VALUES(3, 'because a vision softly creeping');
-INSERT INTO posts(post_id, post_subject) VALUES(4, 'left its seeds while I was sleeping');
-INSERT INTO posts(post_id, post_subject) VALUES(5, 'and the vision that was planted in my brain');
-INSERT INTO posts(post_id, post_subject) VALUES(6, 'still remains... within the sound of silence');
-
-
-CREATE TABLE reply(
+CREATE TABLE reply (
   id INT NOT NULL AUTO_INCREMENT,
   reply_id INT NOT NULL,
   reply_text text,
   PRIMARY KEY(id),
   FOREIGN KEY(reply_id) REFERENCES posts(id)
 );
-
 
 INSERT INTO reply(reply_id, reply_text) VALUES(1, 'In restless dreams I walked alone');
 INSERT INTO reply(reply_id, reply_text) VALUES(1, 'Narrow streets of cobblestone');
