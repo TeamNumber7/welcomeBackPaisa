@@ -31,7 +31,7 @@ class AddReply extends React.Component{
       <div>
         <textarea onChange={this.updateReply} value={this.state.reply}></textarea>
         <div>
-          <button onClick={this.insertReply}>Add reply </button>
+          <button onClick={this.insertReply}>Add reply</button>
         </div>
       </div>
     )
