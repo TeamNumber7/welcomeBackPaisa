@@ -7,9 +7,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 const SinglePost = (props) => (
-      <div>
+      <div className="post-link">
         <Link to={`/post/${props.post.post_id}`}>
-        <div>{`${props.post.post_subject}`}</div><br />
+        <div className="post-title">{`${props.post.post_subject}`}</div><br />
         </Link>
       </div>
   )
