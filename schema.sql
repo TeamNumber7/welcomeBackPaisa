@@ -30,8 +30,8 @@ INSERT INTO posts(post_id, post_subject, post_text) VALUES(2, 'Ive come to talk 
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(3, 'because a vision softly creeping', 'Fluff it up a little and hypnotize it. This is a happy place, little squirrels live here and play. Let your heart take you to wherever you want to be.');
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(4, 'left its seeds while I was sleeping', 'Let your imagination be your guide. You can do anything here. So don\'t worry about it.');
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(5, 'and the vision that was planted in my brain', 'We need dark in order to show light. Working it up and down, back and forth. The only thing worse than yellow snow is green snow.');
-INSERT INTO posts(post_id, post_subject, post_text) VALUES(6, 'still remains... within the sound of silence', 'Let that brush dance around there and play. Remember how free clouds are. They just lay around in the sky all day long. Isn\'t it great to do something you can\'t fail at?');
-
+INSERT INTO posts(post_id, post_subject, post_text) VALUES(6, 'What are the main documents that I should get once I arrive in the city for the first time?', 'What should I get? How can I get the as well?');
+ 
 CREATE TABLE reply (
   id INT NOT NULL AUTO_INCREMENT,
   reply_id INT NOT NULL,

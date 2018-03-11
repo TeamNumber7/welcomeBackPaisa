@@ -5,7 +5,7 @@ import React from 'react';
 
 //Logic for GET/POST will be moved up to Post.jsx
 const Comment = (props) => (
-  <div className="post">
+  <div id="Background-image-post" className="post">
     <center>
       <div className="post-link">
         {props.post.post_subject}

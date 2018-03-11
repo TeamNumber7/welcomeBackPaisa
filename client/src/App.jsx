@@ -27,14 +27,17 @@ import AboutMe from './pages/AboutMe.jsx';
 
 const App = () => (
   <div>
-    <BrowserRouter>
+    <BrowserRouter id='Background-image-post' >
       <MuiThemeProvider>
-          <HeaderBar/>
-      <DrawerUndockedExample />
-        <main id="content" className="full-height inner">
-          <Switch>
-            <Route exact path="/" component={Forum} />
-              <Route path="/post/:id" render={(props) => <Post {...props}/> } />
+          <HeaderBar />
+          <div>
+            <DrawerUndockedExample />
+              <center><h1>WBP</h1></center>
+          </div>
+        <main id="content" className="full-height inner" id='Background-image-post'>
+          <Switch id='Background-image-post'>
+            <Route exact path="/" component={Forum} id='Background-image-post'/>
+              <Route path="/post/:id" render={(props) => <Post {...props}/> } id='Background-image-post' />
                 <Route path="/about" component={AboutMe} />
           </Switch>
         </main>
