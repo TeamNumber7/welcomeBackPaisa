@@ -16,6 +16,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
+import HeaderBar from "./components/app/HeaderBar.jsx";
 import DrawerUndockedExample from "./components/app/Menu.jsx";
 import Forum from './pages/Forum.jsx';
 import Post from './pages/Post.jsx';
@@ -28,6 +29,7 @@ const App = () => (
   <div>
     <BrowserRouter>
       <MuiThemeProvider>
+          <HeaderBar/>
       <DrawerUndockedExample />
         <main id="content" className="full-height inner">
           <Switch>
