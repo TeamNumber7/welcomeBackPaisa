@@ -1,6 +1,12 @@
 /*AddReplay will be stateful component where new replies are written
 */
 import React from 'react';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  margin: 12,
+};
 
 class AddReply extends React.Component{
   constructor(props) {
@@ -12,14 +18,14 @@ class AddReply extends React.Component{
    this.updateReply = this.updateReply.bind(this);
   }
 
-  updateReply(e){
+  updateReply(event){
     this.setState({
-      comment: e.target.value
+      reply: event.target.value
     })
   }
 
-  insertReply(){
-    this.props.addReply(this.state.reply)
+  addReply(){
+    this.props.insertReply(this.state.reply)
     this.setState({
       reply: ''
     })
@@ -28,10 +34,14 @@ class AddReply extends React.Component{
   render(){
     return (
       <div>
-        <textarea onChange={this.updateReply} value={this.state.reply}></textarea>
+        <center>
+        <section className="forumTextBox-section">
+            <TextField onChange={this.updateReply} floatingLabelText="Add Reply" multiLine={true} value={this.state.reply}/>
+        </section>
         <div>
-          <button onClick={this.postReply}>Add reply</button>
+          <RaisedButton onClick={this.addReply} label="Submit" style={style} type="submit" />
         </div>
+        </center>
       </div>
     )
    }

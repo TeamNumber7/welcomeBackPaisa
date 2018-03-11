@@ -5,12 +5,12 @@ import React from 'react';
 
 //Logic for GET/POST will be moved up to Post.jsx
 const Comment = (props) => (
-  <div>
+  <div className="post">
     <center>
-      <div>
+      <div className="post-link">
         {props.post.post_subject}
       </div>
-      <div>
+      <div className="comment-text">
         {props.post.post_text}
       </div>
     </center>
