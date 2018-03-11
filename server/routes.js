@@ -26,7 +26,9 @@ exports.getResponse = (req, res) => {
 
 //Query for posting new threads
 exports.postThread = (req, res) => {
-  db.postTopic()
+  let subject = req.body.subject;
+  let comment = req.body.comment;
+  db.postTopic(subject, comment)
   .then(data => {
     res.status(200).send(data)
   })
@@ -35,7 +37,6 @@ exports.postThread = (req, res) => {
 
 //Query for posting new replies
 exports.postResponse = (req, res) => {
-  console.log(req.body.reply)
   let reply = req.body.reply;
   let postId = parseInt(req.url.split('/')[2])
   db.postReply(postId, reply)

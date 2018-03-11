@@ -17,10 +17,10 @@ const connection = mysql.createConnection(mysqlConfig);
 
 
 //post new post(thread)
-  const postTopic = function() {
+  const postTopic = function(subject, comment) {
     return new Promise((resolve, reject) => {
-  connection.query('INSERT INTO posts(post_id, post_subject) VALUES(?, ?)',
-    [post_id, post_subject], (err, data) => {
+  connection.query('INSERT INTO posts(post_id, post_subject, post_text) VALUES(?, ?, ?)',
+    [1, subject, comment], (err, data) => {
     if(err){
        return reject(err);
      }
