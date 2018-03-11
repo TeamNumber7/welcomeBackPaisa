@@ -10,20 +10,22 @@ import React from 'react';
 
 import Comment from '../components/post/Comment.jsx';
 import ReplyThread from '../components/post/ReplyThread.jsx';
+import AddReply from '../components/post/AddReply.jsx';
 
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      postId: this.props.match.params.id,
       comment: [],
       replies: []
     }
     this.getReply = this.getReply.bind(this)
-    this.addReply = this.addReply.bind(this)
+    this.insertReply = this.insertReply.bind(this)
   }
 
   componentDidMount() {
-    this.getReply(this.props.match.params.id);
+    this.getReply(this.state.postId);
   }
 
   getReply(postId) {
@@ -42,27 +44,28 @@ export default class Post extends React.Component {
     })
   }
 
-  addReply(reply){
+  insertReply(reply){
     $.ajax({
-      method:'POST',
-      url:'/reply',
+      method: 'POST',
+      url: `/post/${this.state.postId}`,
       contentType: 'application/json',
-      data:JSON.stringify({
-        reply:reply
+      data: JSON.stringify({
+        reply
       })
     }).done(() => {
-      this.getReply()
+      this.getReply(this.state.postId)
     })
   }
 
   render() {
     let currentComment = this.state.comment.map(post => <Comment
       post={post} key={post.post_id} /> )
-      
+
     return (
       <div>
         { currentComment }
         <ReplyThread replies={this.state.replies} />
+        <AddReply insertReply={this.insertReply} />
       </div>
       )
     }

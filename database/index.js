@@ -53,10 +53,10 @@ const getSingleTopic = function(postId) {
 };
 
 //post reply to threads in home page
-  const postReply = function() {
+  const postReply = function(postId, reply) {
     return new Promise((resolve, reject) => {
   connection.query('INSERT INTO reply(reply_id, reply_text) VALUES(?, ?)',
-  [reply_id, reply_text], (err, data) => {
+  [postId, reply], (err, data) => {
     if(err){
       return reject(err);
      }
