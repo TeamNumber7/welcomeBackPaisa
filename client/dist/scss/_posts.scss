@@ -3,6 +3,8 @@
 
 .posts {
     counter-reset: post;
+    background-color: #D3D3D3;
+
 
     .post-link:before {
         content: counter(post);
@@ -15,6 +17,7 @@
 }
 
 .post {
+  background-color: #D3D3D3;
     position: relative;
     counter-increment: post;
     background: #fff;
@@ -46,7 +49,7 @@
     color: $dark-gray;
     user-select: none;
     line-height: 1;
-    
+
     &:hover {
         text-decoration: none;
     }

@@ -56,8 +56,8 @@ export default class Forum extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div id='Background-image-post'>
+        <div id='Background-image-post'>
           <Posts posts={this.state.posts} />
         </div>
           <center>

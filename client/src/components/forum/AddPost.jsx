@@ -5,6 +5,23 @@
 
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import {orange500, blue500, pink300, deepPurple400} from 'material-ui/styles/colors';
+
+const style = {
+  errorStyle: {
+  color: orange500,
+},
+underlineStyle: {
+  borderColor: deepPurple400,
+},
+floatingLabelStyle: {
+  color: orange500,
+},
+floatingLabelFocusStyle: {
+  color: blue500,
+},
+  margin: 12,
+};
 
 class AddPost extends React.Component{
  constructor(props){
@@ -30,11 +47,11 @@ class AddPost extends React.Component{
 
  render() {
     return (
-      <div>
+      <div id='Background-image-post'>
         <div className="startT">
         <h2>ADD NEW POST</h2>
           <section className="forumTextBox-section">
-              <TextField floatingLabelText="New Post" multiLine={true} />
+              <TextField underlineStyle={style.underlineStyle} floatingLabelText="New Post" multiLine={true} />
           </section>
         </div>
       </div>
