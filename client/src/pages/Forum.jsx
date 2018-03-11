@@ -26,17 +26,13 @@ export default class Forum extends React.Component {
     this.getPost();
   }
 
-  componentDidMount(){
-    this.addPost();
-  }
-
   getPost(){
     $.ajax({
       url:'/forum',
       method:"GET",
-      success: (results) => {
+      success: (data) => {
         this.setState({
-          posts: results
+          posts: data
         })
       },
       error:(xhr,err) => {
