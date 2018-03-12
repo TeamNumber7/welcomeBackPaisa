@@ -35,7 +35,6 @@ exports.postThread = (req, res) => {
 
 //Query for posting new replies
 exports.postResponse = (req, res) => {
-  console.log(req.body.reply)
   let reply = req.body.reply;
   let postId = parseInt(req.url.split('/')[2])
   db.postReply(postId, reply)
