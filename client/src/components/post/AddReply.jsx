@@ -3,8 +3,21 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {orange500, blue500, deepPurple400} from 'material-ui/styles/colors';
 
 const style = {
+  errorStyle: {
+  color: orange500,
+},
+underlineStyle: {
+  borderColor: deepPurple400,
+},
+floatingLabelStyle: {
+  color: orange500,
+},
+floatingLabelFocusStyle: {
+  color: blue500,
+},
   margin: 12,
 };
 
@@ -34,12 +47,12 @@ class AddReply extends React.Component{
   render(){
     return (
       <div>
-        <center>
+        <center id='Background-image-post'>
         <section className="forumTextBox-section">
-            <TextField onChange={this.updateReply} floatingLabelText="Add Reply" multiLine={true} value={this.state.reply}/>
+            <TextField underlineStyle={style.underlineStyle} onChange={this.updateReply} floatingLabelText="Add Reply" multiLine={true} value={this.state.reply}/>
         </section>
         <div>
-          <RaisedButton onClick={this.addReply} label="Submit" style={style} type="submit" />
+          <RaisedButton onClick={this.addReply} label="Submit" style={style} secondary={true} type="submit" />
         </div>
         </center>
       </div>
