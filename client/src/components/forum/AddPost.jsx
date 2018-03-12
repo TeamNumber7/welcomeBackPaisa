@@ -32,6 +32,7 @@ class AddPost extends React.Component{
   }
   this.updateSubject = this.updateSubject.bind(this);
   this.updateComment = this.updateComment.bind(this);
+  this.addNewPost = this.addNewPost.bind(this);
  }
 
  updateSubject(event){
@@ -46,7 +47,7 @@ class AddPost extends React.Component{
    })
  }
 
-  insertPost(){
+  addNewPost(){
     this.props.insertPost(this.state.subject, this.state.comment);
     this.setState({
       subject: '',
@@ -60,13 +61,26 @@ class AddPost extends React.Component{
         <div className="startT">
         <h2>START NEW POST</h2>
           <section className="forumTextBox-section">
-              <TextField onChange={this.updateSubject} floatingLabelText="Title" multiLine={false} value={this.state.subject} underlineStyle={style.underlineStyle} floatingLabelText="New Post" multiLine={true} />
+              <TextField onChange={this.updateSubject}
+                         floatingLabelText="Title"
+                         multiLine={false}
+                         value={this.state.subject}
+                         underlineStyle={style.underlineStyle}
+                         />
           </section>
           <section className="forumTextBox-section">
-              <TextField onChange={this.updateComment} floatingLabelText="Comment" multiLine={true} value={this.state.comment}/>
+              <TextField onChange={this.updateComment}
+                         floatingLabelText="Comment"
+                         multiLine={true}
+                         value={this.state.comment}
+                         underlineStyle={style.underlineStyle}
+                         />
           </section>
           <div>
-            <RaisedButton onClick={this.insertPost} label="Submit" style={style} type="submit" />
+            <RaisedButton onClick={this.addNewPost}
+                          label="Submit"
+                          secondary={true}
+                          style={style} type="submit" />
           </div>
         </div>
       </div>
