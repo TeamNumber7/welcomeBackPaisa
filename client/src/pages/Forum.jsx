@@ -55,13 +55,13 @@ export default class Forum extends React.Component {
 
   render() {
     return (
-      <div id='Background-image-post'>
-        <div id='Background-image-post'>
+      <div class="row">
+        <div class="col-12 col-md-8">
           <Posts posts={this.state.posts} />
         </div>
-          <center>
+          <aside class="col-6 col-md-4">
             <AddPost insertPost={this.insertPost} />
-          </center>
+          </aside>
       </div>
     );
   }

@@ -31,11 +31,28 @@
     line-height: 1.2;
 }
 
+.post-subject {
+  color: #00a9ff;
+  line-height: 1.2;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.comment-body {
+  color: #00a9ff;
+  line-height: 1.2;
+}
+
 .post-title {
+    color: #00a9ff;
     font-family: $heading-font;
     margin-right: 0.6em;
 }
 
+.post-reply {
+  color: #7c7c7c;
+
+}
 .hostname {
     font-size: $text-small;
     color: $dark;
