@@ -17,10 +17,10 @@ const connection = mysql.createConnection(mysqlConfig);
 
 
 //post new post(thread)
-  const postTopic = function() {
+  const postTopic = function(subject, comment) {
     return new Promise((resolve, reject) => {
-  connection.query('INSERT INTO posts(post_id, post_subject) VALUES(?, ?)',
-    [post_id, post_subject], (err, data) => {
+  connection.query('INSERT INTO posts(post_id, post_subject, post_text) VALUES(?, ?, ?)',
+    [1, subject, comment], (err, data) => {
     if(err){
        return reject(err);
      }
@@ -43,7 +43,7 @@ const connection = mysql.createConnection(mysqlConfig);
 //GET single Topic
 const getSingleTopic = function(postId) {
   return new Promise((resolve, reject) => {
-  connection.query('SELECT * FROM posts WHERE post_id = ?', [postId], (err, data) => {
+  connection.query('SELECT * FROM posts WHERE id = ?', [postId], (err, data) => {
     if(err){
       return reject(err);
      }

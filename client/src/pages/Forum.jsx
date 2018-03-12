@@ -3,14 +3,12 @@
   Forum page will contain logic for GET/POST'ing posts
   Forum page will store posts in state and pass down a list of posts as props to Posts
 */
-
 import $ from "jquery";
 import React from "react";
 import {Link} from "react-router-dom";
 
 import Posts from "../components/forum/Posts.jsx";
 import AddPost from "../components/forum/AddPost.jsx";
-//import TextBoxForum from '../components/forum/TextBox.jsx';
 
 export default class Forum extends React.Component {
   constructor(props){
@@ -19,7 +17,7 @@ export default class Forum extends React.Component {
       posts: []
   }
   this.getPost = this.getPost.bind(this);
-  this.addPost = this.addPost.bind(this);
+  this.insertPost = this.insertPost.bind(this);
 }
 
   componentDidMount(){
@@ -41,13 +39,14 @@ export default class Forum extends React.Component {
     })
   }
 
-  addPost(comment){
+  insertPost(subject, comment){
     $.ajax({
       method:'POST',
       url:'/forum',
       contentType: 'application/json',
       data:JSON.stringify({
-        comment:comment
+        subject,
+        comment
       })
     }).done(()=>{
       this.getPost()
@@ -56,13 +55,13 @@ export default class Forum extends React.Component {
 
   render() {
     return (
-      <div id='Background-image-post'>
-        <div id='Background-image-post'>
+      <div class="row">
+        <div class="col-12 col-md-8">
           <Posts posts={this.state.posts} />
         </div>
-          <center>
-            <AddPost />
-          </center>
+          <aside class="col-6 col-md-4">
+            <AddPost insertPost={this.insertPost} />
+          </aside>
       </div>
     );
   }

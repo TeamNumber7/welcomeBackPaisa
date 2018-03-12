@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Reply = (props) => (
-  <div>
+  <div className='post-reply'>
     <center>
       {props.reply.reply_text}
     </center>

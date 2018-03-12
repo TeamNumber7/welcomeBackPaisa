@@ -6,10 +6,11 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
+
 const SinglePost = (props) => (
-      <div id='Background-image-post' className="post-link">
-        <Link to={`/post/${props.post.post_id}`}>
-        <div id='Background-image-post' className="post-title">{`${props.post.post_subject}`}</div><br />
+      <div id='post-center-bg' className="post-link">
+        <Link to={`/post/${props.post.id}`}>
+        <div id='post-center-bg' className="post-title">{`${props.post.post_subject}`}</div><br />
         </Link>
       </div>
   )

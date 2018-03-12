@@ -2,9 +2,9 @@
   AddPost will be clickable and should redirect to Create New Post page
   But for right now, it should only be a button icon
 */
-
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import {orange500, blue500, pink300, deepPurple400} from 'material-ui/styles/colors';
 
 const style = {
@@ -27,35 +27,65 @@ class AddPost extends React.Component{
  constructor(props){
    super(props);
    this.state = {
-    comment:''
+     subject: '',
+     comment: ''
   }
+  this.updateSubject = this.updateSubject.bind(this);
   this.updateComment = this.updateComment.bind(this);
-  this.updateUserName = this.updateUserName.bind(this);
+  this.addNewPost = this.addNewPost.bind(this);
  }
 
- updateComment(e){
+ updateSubject(event){
    this.setState({
-     comment:e.target.value
+     subject: event.target.value
    })
  }
 
- updateUserName(e){
+ updateComment(event){
    this.setState({
-     userName:e.target.value
+     comment: event.target.value
    })
  }
+
+  addNewPost(){
+    this.props.insertPost(this.state.subject, this.state.comment);
+    this.setState({
+      subject: '',
+      comment: ''
+    })
+  }
 
  render() {
     return (
       <div id='Background-image-post'>
         <div className="startT">
-        <h2>ADD NEW POST</h2>
+        <h2>START NEW POST</h2>
           <section className="forumTextBox-section">
-              <TextField underlineStyle={style.underlineStyle} floatingLabelText="New Post" multiLine={true} />
+              <TextField onChange={this.updateSubject}
+                         floatingLabelText="Title"
+                         multiLine={false}
+                         value={this.state.subject}
+                         underlineStyle={style.underlineStyle}
+                         />
           </section>
+          <section className="forumTextBox-section">
+              <TextField onChange={this.updateComment}
+                         floatingLabelText="Comment"
+                         multiLine={true}
+                         value={this.state.comment}
+                         underlineStyle={style.underlineStyle}
+                         />
+          </section>
+          <div>
+            <RaisedButton onClick={this.addNewPost}
+                          label="Submit"
+                          secondary={true}
+                          style={style} type="submit" />
+          </div>
         </div>
       </div>
     );
   }
 }
+
 export default AddPost;

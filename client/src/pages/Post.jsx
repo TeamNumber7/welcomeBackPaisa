@@ -59,11 +59,12 @@ export default class Post extends React.Component {
 
   render() {
     let currentComment = this.state.comment.map(post => <Comment
-      post={post} key={post.post_id} id='Background-image-post' /> )
+      post={post} key={post.id} id='post-center-bg' /> )
 
     return (
-      <div id='Background-image-post'>
+      <div id='post-center-bg'>
         { currentComment }
+        <br/>
         <ReplyThread replies={this.state.replies} id='Background-image-post' />
         <AddReply insertReply={this.insertReply} id='Background-image-post' />
       </div>
