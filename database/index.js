@@ -43,7 +43,7 @@ const connection = mysql.createConnection(mysqlConfig);
 //GET single Topic
 const getSingleTopic = function(postId) {
   return new Promise((resolve, reject) => {
-  connection.query('SELECT * FROM posts WHERE post_id = ?', [postId], (err, data) => {
+  connection.query('SELECT * FROM posts WHERE id = ?', [postId], (err, data) => {
     if(err){
       return reject(err);
      }

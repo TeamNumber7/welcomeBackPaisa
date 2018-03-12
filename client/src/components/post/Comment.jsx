@@ -7,6 +7,7 @@ import React from 'react';
 const Comment = (props) => (
   <div id="Background-image-post" className="post">
     <center>
+      {console.log(props)}
       <div className="post-link">
         {props.post.post_subject}
       </div>

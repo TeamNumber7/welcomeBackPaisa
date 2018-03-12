@@ -31,7 +31,7 @@ INSERT INTO posts(post_id, post_subject, post_text) VALUES(3, 'because a vision 
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(4, 'left its seeds while I was sleeping', 'Let your imagination be your guide. You can do anything here. So don\'t worry about it.');
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(5, 'and the vision that was planted in my brain', 'We need dark in order to show light. Working it up and down, back and forth. The only thing worse than yellow snow is green snow.');
 INSERT INTO posts(post_id, post_subject, post_text) VALUES(6, 'What are the main documents that I should get once I arrive in the city for the first time?', 'What should I get? How can I get the as well?');
- 
+
 CREATE TABLE reply (
   id INT NOT NULL AUTO_INCREMENT,
   reply_id INT NOT NULL,
